@@ -34,7 +34,7 @@ export class FfTestPageComponent implements OnInit {
   }
 
   search() {
-    console.log(this.searchForm.value);
+    console.log(this.searchForm);
     const datForm = this.searchForm.value;
     this.isLoading = true;
     this.jokesService.getList(datForm.search)

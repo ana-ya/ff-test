@@ -11,7 +11,7 @@
                       <span hidden translate>Find jokes</span>
                     </label>
                   <span class="input-group-btn">
-                      <button class="btn btn-primary" type="submit" [disabled]="searchForm.invalid || isLoading">
+                      <button class="btn btn-primary" type="submit" [disabled]="searchForm.invalid || isLoading || 3 > searchForm.value.search.length">
                           <i class="fas fa-search" [hidden]="!isLoading"></i>
                           <span translate>Submit</span>
                         </button>
