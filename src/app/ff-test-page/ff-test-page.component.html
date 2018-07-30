@@ -1,3 +1,38 @@
-<p>
-  ff-test-page works!
-</p>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <div class="container">
+      <div class="col-md-12 mt-6 mx-auto">
+        <form (ngSubmit)="search()" [formGroup]="searchForm" novalidate>
+          <div class="form-group">
+              <div class="input-group">
+                  <label class="">
+                      <input type="text" class="form-control" formControlName="search" autocomplete="search"
+                             [placeholder]="'Find jokes' | translate"/>
+                      <span hidden translate>Find jokes</span>
+                    </label>
+                  <span class="input-group-btn">
+                      <button class="btn btn-primary" type="submit" [disabled]="searchForm.invalid || isLoading">
+                          <i class="fas fa-search" [hidden]="!isLoading"></i>
+                          <span translate>Submit</span>
+                        </button>
+                  </span>
+               </div>
+          </div>
+          <div *ngIf="jokes.length > 0" class="card col-md-12 mt-6 mx-auto">
+              <ul class="list-group list-group-flush">
+                  <a *ngFor="let joke of jokes; let i = index" [attr.data-index]="i" 
+                    href={{joke.url}} target="_blank" key={{joke.id}>
+                    <li class="list-group-item">
+                      <div>
+                          <h4>Joke #{{i + 1}}</h4>
+                          <span>{{joke.value}}</span>
+                      </div>
+                    </li>
+                  </a>
+              </ul>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
