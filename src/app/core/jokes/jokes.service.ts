@@ -9,6 +9,6 @@ export class JokesService {
   constructor(private http: HttpClient) { }
 
   getList(search: string) {
-    return this.http.get(`/jokes/search?query=${search}`)
+    return this.http.get(`/jokes/search?query=${search}`);
   }
 }
